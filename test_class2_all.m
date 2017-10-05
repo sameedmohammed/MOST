@@ -1,0 +1,9 @@
+%test_class2_adw_dice;
+%test_class2_adw_ham;
+%test_class2_adw_leven;
+%test_class2_kw_dice;
+%test_class2_kw_ham;
+%test_class2_kw_leven;
+%test_class2_sum_dice;
+test_class2_sum_ham;
+test_class2_sum_leven;

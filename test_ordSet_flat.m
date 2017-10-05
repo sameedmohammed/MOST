@@ -1,0 +1,23 @@
+opts = gaoptimset('PopulationSize',200,...
+    'CreationFcn',@create_population_2,...
+    'MutationFcn',@mutate_test_suite_2,...
+    'CrossoverFcn',@crossover_test_suite_2,...
+    'CrossoverFraction', 0.7,...
+    'ParetoFraction', 0.35,...
+    'Display','iter',...
+    'PopulationType','custom');
+
+[x,fval,flag,output,population] = gamultiobj(@multiobj_fit_ordSet_adw_dice,600,[],[],[],[],[],[],opts);
+result = zeros (70,600);
+conv = zeros (70,600);
+for j = 1 : 70
+    result(j,:) = x{j};
+    temp = compute_transition_sequence_ordSet_flat(x{j});
+    for k = 1 : length(temp)
+        conv(j,k) =temp(k);
+    end
+    if(length(temp) < 600)
+        conv(j,length(temp)+1)= -2;
+    end
+end
+%%%END CODE%%%
